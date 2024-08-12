@@ -24,7 +24,10 @@ public class CarController {
                 new Car("Jeep", "Grand Cherokee", "Black"),
                 new Car("Lexus", "RX350", "White"),
                 new Car("Audi", "Q7", "Blue")));
-        if (count != null && count.matches("\\d+")) {
+        if (count == null) {
+            count = "5";
+        }
+        if (count.matches("\\d+")) {
             model.addAttribute("cars", carService.getCars(cars, Integer.parseInt(count)));
         }
         return "cars";
